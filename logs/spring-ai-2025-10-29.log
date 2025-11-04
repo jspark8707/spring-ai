@@ -1,0 +1,228 @@
+2025-10-29 09:25:59.037 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 38468 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 09:25:59.038 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 09:25:59.038 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 09:25:59.586 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 09:25:59.592 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 09:25:59.593 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 09:25:59.593 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 09:25:59.631 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 09:25:59.631 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 481 ms
+2025-10-29 09:25:59.856 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 09:26:00.038 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 09:26:00.044 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 09:26:00.049 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.252 seconds (process running for 1.619)
+2025-10-29 09:31:56.666 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 09:31:56.686 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 13352 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 09:31:56.688 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 09:31:58.116 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 09:31:58.518 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 2.465 seconds (process running for 5.708)
+2025-10-29 09:31:59.245 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 09:31:59.246 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:00:32.721 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:00:32.723 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:26:33.050 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 10:26:33.157 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 27568 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:26:33.158 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:26:34.271 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:26:34.682 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 1.846 seconds (process running for 2.449)
+2025-10-29 10:26:35.365 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:26:35.366 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:36:29.664 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 10:36:30.128 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 44804 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:36:30.129 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:36:30.921 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:36:31.248 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 1.808 seconds (process running for 2.423)
+2025-10-29 10:36:31.867 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:36:31.979 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:41:10.080 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 22352 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:41:10.081 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 10:41:10.082 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:41:10.727 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 10:41:10.733 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:41:10.733 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 10:41:10.733 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 10:41:10.779 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 10:41:10.779 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 570 ms
+2025-10-29 10:41:11.043 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:41:11.240 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:41:11.246 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 10:41:11.252 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.465 seconds (process running for 1.85)
+2025-10-29 10:41:23.724 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-29 10:41:23.724 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-29 10:41:23.725 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms
+2025-10-29 10:41:26.879 [http-nio-8080-exec-4] DEBUG com.d2dev.springai.ChatService - Requested Model: openAi
+2025-10-29 10:41:26.879 [http-nio-8080-exec-4] DEBUG com.d2dev.springai.ChatService - User Question: 테스트
+2025-10-29 10:41:29.063 [http-nio-8080-exec-4] DEBUG com.d2dev.springai.ChatService - AI Answer: 안녕하세요! 테스트에 어떤 도움이 필요하신가요? 부담 갖지 마시고 무엇이든 물어보세요. 함께 해결해보겠습니다.
+2025-10-29 10:43:49.192 [http-nio-8080-exec-3] DEBUG com.d2dev.springai.ChatService - Requested Model: openAi
+2025-10-29 10:43:49.192 [http-nio-8080-exec-3] DEBUG com.d2dev.springai.ChatService - User Question: 안녕하세요
+2025-10-29 10:43:49.865 [http-nio-8080-exec-3] DEBUG com.d2dev.springai.ChatService - AI Answer: 안녕하세요! 혹시 도와드릴 일이 있나요?
+2025-10-29 10:45:02.061 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:45:02.292 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:45:08.118 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 39028 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:45:08.119 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 10:45:08.119 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:45:08.722 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 10:45:08.727 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:45:08.728 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 10:45:08.728 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 10:45:08.771 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 10:45:08.772 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 533 ms
+2025-10-29 10:45:09.011 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:45:09.204 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:45:09.211 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 10:45:09.216 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.384 seconds (process running for 1.855)
+2025-10-29 10:47:10.635 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:47:10.875 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:47:13.119 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 14912 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:47:13.120 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 10:47:13.121 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:47:13.738 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 10:47:13.743 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:47:13.744 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 10:47:13.744 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 10:47:13.787 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 10:47:13.788 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 552 ms
+2025-10-29 10:47:14.037 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:47:14.226 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:47:14.234 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 10:47:14.239 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.43 seconds (process running for 1.984)
+2025-10-29 10:47:27.980 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:47:28.122 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:47:36.995 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 10:47:37.459 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 47192 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:47:37.459 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:47:38.537 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel]
+2025-10-29 10:47:39.059 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 2.311 seconds (process running for 2.979)
+2025-10-29 10:53:21.765 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 3564 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:53:21.765 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 10:53:21.767 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:53:22.379 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 10:53:22.384 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:53:22.385 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 10:53:22.385 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 10:53:22.430 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 10:53:22.430 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 540 ms
+2025-10-29 10:53:22.673 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:53:22.855 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:53:22.862 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 10:53:22.867 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.395 seconds (process running for 1.824)
+2025-10-29 10:53:44.773 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-29 10:53:44.773 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-29 10:53:44.773 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-10-29 10:53:47.464 [http-nio-8080-exec-2] DEBUG com.d2dev.springai.ChatService - Requested Model: openAi
+2025-10-29 10:53:49.882 [http-nio-8080-exec-2] DEBUG com.d2dev.springai.ChatService - AI Answer: 안녕하세요! 무엇을 도와드릴까요?
+2025-10-29 10:53:52.721 [http-nio-8080-exec-3] DEBUG com.d2dev.springai.ChatService - Requested Model: openAi
+2025-10-29 10:53:54.387 [http-nio-8080-exec-3] DEBUG com.d2dev.springai.ChatService - AI Answer: 알겠어요! 어떤 도움이 필요하신가요? 부담 가지지 마시고 물어보세요.
+2025-10-29 10:54:02.654 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:54:02.752 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 10:54:20.137 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 10:54:20.617 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 31004 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:54:20.617 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:54:21.635 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel]
+2025-10-29 10:54:21.998 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 2.085 seconds (process running for 2.754)
+2025-10-29 10:58:38.487 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 10:58:38.497 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 54244 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:58:38.497 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:58:39.597 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel]
+2025-10-29 10:58:40.044 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 1.77 seconds (process running for 2.417)
+2025-10-29 10:58:55.666 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 41128 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 10:58:55.667 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 10:58:55.668 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 10:58:56.328 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 10:58:56.333 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:58:56.334 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 10:58:56.334 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 10:58:56.380 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 10:58:56.380 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 593 ms
+2025-10-29 10:58:56.629 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 10:58:56.818 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 10:58:56.824 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 10:58:56.829 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.443 seconds (process running for 1.839)
+2025-10-29 10:59:05.820 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-29 10:59:05.820 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-29 10:59:05.821 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 0 ms
+2025-10-29 10:59:08.883 [http-nio-8080-exec-2] DEBUG com.d2dev.springai.ChatService - Requested Model: openAi
+2025-10-29 10:59:10.209 [http-nio-8080-exec-2] DEBUG com.d2dev.springai.ChatService - AI Answer: 안녕하세요! 어떤 도움이 필요하신가요?
+2025-10-29 11:05:05.924 [http-nio-8080-exec-6] DEBUG com.d2dev.springai.ChatService - Requested Model: ollama
+2025-10-29 11:05:14.941 [http-nio-8080-exec-6] DEBUG com.d2dev.springai.ChatService - AI Answer: It looks like you're trying to test something! 😊 What would you like to do? Would you like to ask me a question, play a game, or something else entirely? I'm here to help and happy to chat! 🤗
+2025-10-29 11:05:28.277 [http-nio-8080-exec-7] DEBUG com.d2dev.springai.ChatService - Requested Model: ollama
+2025-10-29 11:05:29.545 [http-nio-8080-exec-7] DEBUG com.d2dev.springai.ChatService - AI Answer: Hi there! I'm not actually Ollama, but I'll do my best to chat with you like we're old friends. What's on your mind? Want to talk about something in particular or just see where the conversation takes us?
+2025-10-29 11:10:50.143 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of destroy method failed on bean with name 'vertexAiGeminiChat': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 11:10:50.143 [SpringApplicationShutdownHook] WARN  o.s.b.f.s.DisposableBeanAdapter - Invocation of close method failed on bean with name 'vertexAi': java.lang.IllegalStateException: java.io.IOException: Your default credentials were not found. To set up Application Default Credentials for your environment, see https://cloud.google.com/docs/authentication/external/set-up-adc.
+2025-10-29 11:10:51.787 [main] INFO  c.d2dev.springai.SpringAiApplication - Starting SpringAiApplication using Java 17.0.11 with PID 29476 (C:\OneDrive\Projects\spring-ai\spring-ai\target\classes started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 11:10:51.788 [main] DEBUG c.d2dev.springai.SpringAiApplication - Running with Spring Boot v3.2.5, Spring v6.1.6
+2025-10-29 11:10:51.789 [main] INFO  c.d2dev.springai.SpringAiApplication - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 11:10:52.394 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat initialized with port 8080 (http)
+2025-10-29 11:10:52.400 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
+2025-10-29 11:10:52.401 [main] INFO  o.a.catalina.core.StandardService - Starting service [Tomcat]
+2025-10-29 11:10:52.401 [main] INFO  o.a.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.20]
+2025-10-29 11:10:52.445 [main] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+2025-10-29 11:10:52.445 [main] INFO  o.s.b.w.s.c.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 540 ms
+2025-10-29 11:10:52.688 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel, vertexAiGeminiChat]
+2025-10-29 11:10:52.873 [main] INFO  o.a.coyote.http11.Http11NioProtocol - Starting ProtocolHandler ["http-nio-8080"]
+2025-10-29 11:10:52.880 [main] INFO  o.s.b.w.e.tomcat.TomcatWebServer - Tomcat started on port 8080 (http) with context path ''
+2025-10-29 11:10:52.884 [main] INFO  c.d2dev.springai.SpringAiApplication - Started SpringAiApplication in 1.401 seconds (process running for 1.905)
+2025-10-29 11:11:01.267 [main] WARN  o.s.b.t.j.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer - 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/OneDrive/Projects/my-local-repository/com/vaadin/external/google/android-json/0.0.20131108.vaadin1/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+	jar:file:/C:/OneDrive/Projects/my-local-repository/org/json/json/20231013/json-20231013.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2025-10-29 11:11:01.279 [main] INFO  c.d.s.SpringAiApplicationTests - Starting SpringAiApplicationTests using Java 17.0.11 with PID 28272 (started by jongsung park in C:\OneDrive\Projects\spring-ai\spring-ai)
+2025-10-29 11:11:01.279 [main] INFO  c.d.s.SpringAiApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2025-10-29 11:11:02.363 [main] INFO  com.d2dev.springai.ChatService - Available Chat Models: [ollamaChatModel, openAiChatModel]
+2025-10-29 11:11:02.896 [main] INFO  c.d.s.SpringAiApplicationTests - Started SpringAiApplicationTests in 1.85 seconds (process running for 2.485)
+2025-10-29 13:19:02.512 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[Tomcat].[localhost].[/] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2025-10-29 13:19:02.512 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2025-10-29 13:19:02.513 [http-nio-8080-exec-1] INFO  o.s.web.servlet.DispatcherServlet - Completed initialization in 1 ms

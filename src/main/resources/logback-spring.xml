@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <springProperty scope="context" name="SLACK_WEBHOOK_URI" source="slack.webhook-uri"/>
+    <springProperty scope="context" name="LOG_LEVEL" source="logging.level.com.d2dev.springai" defaultValue="INFO"/>
+    <property name="LOG_PATH" value="logs"/>
+    <property name="LOG_FILE_NAME" value="spring-ai"/>
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${LOG_PATH}/${LOG_FILE_NAME}.log</file>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${LOG_FILE_NAME}-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>30</maxHistory>
+        </rollingPolicy>
+    </appender>
+    <appender name="SLACK_ERROR" class="com.github.maricn.logback.SlackAppender">
+        <webhookUri>${SLACK_WEBHOOK_URI}</webhookUri>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>🚨 [ERROR] %d{yyyy-MM-dd HH:mm:ss}
+                > %msg%n</pattern>
+        </layout>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+    </appender>
+    <appender name="SLACK_CHAT" class="com.github.maricn.logback.SlackAppender">
+        <webhookUri>${SLACK_WEBHOOK_URI}</webhookUri>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%msg%n</pattern>
+        </layout>
+    </appender>
+
+    <springProfile name="prod">
+        <logger name="chat.history" level="INFO" additivity="false">
+            <appender-ref ref="SLACK_CHAT"/>
+        </logger>
+
+        <logger name="com.d2dev.springai" level="${LOG_LEVEL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="SLACK_ERROR"/> </logger>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="SLACK_ERROR"/> </root>
+    </springProfile>
+
+    <springProfile name="!prod">
+        <logger name="chat.history" level="INFO" additivity="false" />
+
+        <logger name="com.d2dev.springai" level="${LOG_LEVEL}" additivity="false">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </logger>
+
+        <root level="INFO">
+            <appender-ref ref="CONSOLE"/>
+            <appender-ref ref="FILE"/>
+        </root>
+    </springProfile>
+
+</configuration>
