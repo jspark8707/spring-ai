@@ -1,17 +1,19 @@
 package com.d2dev.springai;
 
 import org.junit.jupiter.api.Test;
+import org.springframework.ai.chat.model.ChatModel;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.autoconfigure.ImportAutoConfiguration;
-import org.springframework.ai.autoconfigure.openai.OpenAiAutoConfiguration;
+import org.springframework.boot.test.mock.mockito.MockBean;
 
 @SpringBootTest
-// ✅ 테스트 시 openai 자동구성 제외 (ollama만 로드)
-@ImportAutoConfiguration(exclude = { OpenAiAutoConfiguration.class })
 class SpringAiApplicationTests {
+
+    // ✅ ChatModel Bean을 Mock으로 대체해서 테스트 통과
+    @MockBean
+    private ChatModel chatModel;
 
     @Test
     void contextLoads() {
-        // 단순 컨텍스트 로딩 테스트
+        // 단순 컨텍스트 로드 테스트
     }
 }

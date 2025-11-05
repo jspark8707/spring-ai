@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
     <meta charset="UTF-8">
+    <meta name="env" th:content="${activeProfile}">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NRF Spring AI Chat</title>
-    
+
     <!-- 파비콘 -->
     <link rel="icon" type="image/png" href="/images/NRF늘프_영문_정자세.png">
     <link rel="apple-touch-icon" href="/images/NRF늘프_영문_정자세.png">
-    
+
     <!-- 카카오톡 미리보기 (Open Graph) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="NRF AI Chat">
@@ -15,344 +17,91 @@
     <meta property="og:image" content="/images/NRF늘프_영문_정자세.png">
     <meta property="og:url" content="">
     <meta property="og:site_name" content="NRF AI Chat">
-    
+
     <!-- 트위터 카드 -->
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="NRF AI Chat">
     <meta name="twitter:description" content="NRF AI 챗봇과 대화해보세요!">
     <meta name="twitter:image" content="/images/NRF늘프_영문_정자세.png">
-    
+
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        /* 👇 기존 스타일 그대로 유지 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-color: #10a37f;
-            --primary-hover: #0d8d6d;
-            --bg-primary: #ffffff;
-            --bg-secondary: #f7f7f8;
-            --text-primary: #2d3748;
-            --text-secondary: #6b7280;
+            --primary-color: #10a37f; --primary-hover: #0d8d6d;
+            --bg-primary: #ffffff; --bg-secondary: #f7f7f8;
+            --text-primary: #2d3748; --text-secondary: #6b7280;
             --border-color: #e5e7eb;
-            --user-message-bg: #10a37f;
-            --bot-message-bg: #f7f7f8;
-            --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-            --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            --user-message-bg: #10a37f; --bot-message-bg: #f7f7f8;
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        body { font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+            background-color:var(--bg-secondary); color:var(--text-primary); height:100vh; overflow:hidden;}
+        #main-container { display:flex; flex-direction:column; height:100vh; max-width:1200px; margin:0 auto; background-color:var(--bg-primary);}
+        header { display:flex; justify-content:space-between; align-items:center; padding:16px 24px; border-bottom:1px solid var(--border-color); background-color:var(--bg-primary);}
+        header h1 { font-size:20px; font-weight:600; color:var(--text-primary); display:flex; align-items:center; gap:8px;}
+        header h1 img { width:32px; height:32px; object-fit:contain;}
+        #model-selector { padding:8px 16px; border:1px solid var(--border-color); border-radius:8px; background-color:var(--bg-primary); color:var(--text-primary);
+            font-size:14px; cursor:pointer; transition:all 0.2s; appearance:none;
+            background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+            background-repeat:no-repeat; background-position:right 12px center; padding-right:36px;}
+        #chat-window { flex:1; overflow-y:auto; padding:24px; scroll-behavior:smooth;}
+        .message-row { display:flex; gap:16px; margin-bottom:32px;}
+        .message-icon { width:36px; height:36px; border-radius:4px; display:flex; align-items:center; justify-content:center; font-size:20px; font-weight:600;}
+        .bot-icon { background:linear-gradient(135deg,#667eea 0%,#764ba2 100%); color:white;}
+        .user-icon { background:linear-gradient(135deg,#f093fb 0%,#f5576c 100%); color:white;}
+        .message-content { flex:1; line-height:1.7; font-size:15px; word-wrap:break-word;}
+        .bot-message .message-content { padding:16px 20px; background-color:var(--bot-message-bg); border-radius:12px; border:1px solid var(--border-color);}
+        .user-message { flex-direction:row-reverse;}
+        .user-message .message-content { background-color:var(--user-message-bg); color:white; padding:16px 20px; border-radius:12px;}
+        #input-area { padding:20px 24px 24px; border-top:1px solid var(--border-color); background-color:var(--bg-primary);}
+        #input-wrapper { max-width:900px; margin:0 auto; display:flex; gap:12px; align-items:flex-end;}
+        #question-input { flex:1; border:1px solid var(--border-color); border-radius:12px; padding:14px 18px; font-size:15px; resize:none; outline:none;
+            background-color:var(--bg-primary); transition:all 0.2s; min-height:52px; max-height:200px;}
+        #question-input:focus { border-color:var(--primary-color); box-shadow:0 0 0 3px rgba(16,163,127,0.1);}
+        #send-button { width:52px; height:52px; border:none; border-radius:12px; background-color:var(--primary-color); color:white; cursor:pointer; display:flex;
+            align-items:center; justify-content:center; transition:all 0.2s;}
+        #send-button:hover:not(:disabled){ background-color:var(--primary-hover); transform:translateY(-1px); box-shadow:var(--shadow-md);}
+        #send-button:disabled{ background-color:#d1d5db; cursor:not-allowed; opacity:0.6;}
+        /* ✅ 스피너 회전 */
+        .thinking-spinner {
+            animation: rotate 1s linear infinite;
+        }
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
         }
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background-color: var(--bg-secondary);
-            color: var(--text-primary);
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        #main-container {
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            max-width: 1200px;
-            margin: 0 auto;
-            background-color: var(--bg-primary);
-        }
-
-        /* 헤더 스타일 */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 16px 24px;
-            border-bottom: 1px solid var(--border-color);
-            background-color: var(--bg-primary);
-            flex-shrink: 0;
-        }
-
-        header h1 {
-            font-size: 20px;
-            font-weight: 600;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        header h1 img {
-            width: 32px;
-            height: 32px;
-            object-fit: contain;
-        }
-
-        #model-selector {
-            padding: 8px 16px;
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            font-size: 14px;
-            cursor: pointer;
-            transition: all 0.2s;
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b7280' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
-            background-repeat: no-repeat;
-            background-position: right 12px center;
-            padding-right: 36px;
-        }
-
-        #model-selector:hover {
-            border-color: var(--primary-color);
-        }
-
-        /* 채팅 영역 */
-        #chat-window {
-            flex: 1;
-            overflow-y: auto;
-            padding: 24px;
-            scroll-behavior: smooth;
-        }
-
-        #chat-window::-webkit-scrollbar {
-            width: 8px;
-        }
-
-        #chat-window::-webkit-scrollbar-track {
-            background: transparent;
-        }
-
-        #chat-window::-webkit-scrollbar-thumb {
-            background: #d1d5db;
-            border-radius: 4px;
-        }
-
-        #chat-window::-webkit-scrollbar-thumb:hover {
-            background: #9ca3af;
-        }
-
-        /* 메시지 스타일 */
-        .message-row {
-            display: flex;
-            gap: 16px;
-            margin-bottom: 32px;
-            animation: slideUp 0.3s ease-out;
-        }
-
-        @keyframes slideUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .message-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 4px;
-            flex-shrink: 0;
+        /* ✅ 전체 정렬 */
+        .thinking-wrapper {
             display: flex;
             align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            font-weight: 600;
+            gap: 10px;
+            color: #10a37f;
+            flex-wrap: wrap;
         }
 
-        .bot-icon {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-
-        .user-icon {
-            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
-            color: white;
-        }
-
-        .message-content {
-            flex: 1;
-            line-height: 1.7;
+        /* ✅ 텍스트 깜박임 */
+        .thinking-text {
             font-size: 15px;
-            color: var(--text-primary);
-            word-wrap: break-word;
+            line-height: 1.6;
+            color: #10a37f;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.7; }
+            50% { opacity: 1; }
         }
 
-        .bot-message .message-content {
-            padding: 16px 20px;
-            background-color: var(--bot-message-bg);
-            border-radius: 12px;
-            border: 1px solid var(--border-color);
+        /* ✅ 점이 하나씩 늘어나는 애니메이션 */
+        .thinking-dots::after {
+            content: '';
+            animation: dots 1.5s steps(3, end) infinite;
         }
-
-        .user-message {
-            flex-direction: row-reverse;
-        }
-
-        .user-message .message-content {
-            background-color: var(--user-message-bg);
-            color: white;
-            padding: 16px 20px;
-            border-radius: 12px;
-        }
-
-        /* 로딩 애니메이션 */
-        .loading-dots {
-            display: flex;
-            gap: 6px;
-            padding: 8px 0;
-        }
-
-        .loading-dots span {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background-color: var(--primary-color);
-            animation: bounce 1.4s infinite ease-in-out both;
-        }
-
-        .loading-dots span:nth-of-type(1) {
-            animation-delay: -0.32s;
-        }
-
-        .loading-dots span:nth-of-type(2) {
-            animation-delay: -0.16s;
-        }
-
-        @keyframes bounce {
-            0%, 80%, 100% {
-                transform: scale(0);
-                opacity: 0.5;
-            }
-            40% {
-                transform: scale(1);
-                opacity: 1;
-            }
-        }
-
-        /* 입력 영역 */
-        #input-area {
-            padding: 20px 24px 24px;
-            border-top: 1px solid var(--border-color);
-            background-color: var(--bg-primary);
-            flex-shrink: 0;
-        }
-
-        #input-wrapper {
-            max-width: 900px;
-            margin: 0 auto;
-            display: flex;
-            gap: 12px;
-            align-items: flex-end;
-        }
-
-        #question-input {
-            flex: 1;
-            border: 1px solid var(--border-color);
-            border-radius: 12px;
-            padding: 14px 18px;
-            font-size: 15px;
-            font-family: inherit;
-            resize: none;
-            outline: none;
-            background-color: var(--bg-primary);
-            color: var(--text-primary);
-            transition: all 0.2s;
-            min-height: 52px;
-            max-height: 200px;
-            line-height: 1.5;
-        }
-
-        #question-input:focus {
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.1);
-        }
-
-        #question-input::placeholder {
-            color: var(--text-secondary);
-        }
-
-        #send-button {
-            width: 52px;
-            height: 52px;
-            border: none;
-            border-radius: 12px;
-            background-color: var(--primary-color);
-            color: white;
-            cursor: pointer;
-            font-size: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.2s;
-            flex-shrink: 0;
-        }
-
-        #send-button:hover:not(:disabled) {
-            background-color: var(--primary-hover);
-            transform: translateY(-1px);
-            box-shadow: var(--shadow-md);
-        }
-
-        #send-button:active:not(:disabled) {
-            transform: translateY(0);
-        }
-
-        #send-button:disabled {
-            background-color: #d1d5db;
-            cursor: not-allowed;
-            opacity: 0.6;
-        }
-
-        /* 반응형 디자인 */
-        @media (max-width: 768px) {
-            header {
-                padding: 12px 16px;
-            }
-
-            header h1 {
-                font-size: 18px;
-            }
-
-            #model-selector {
-                font-size: 13px;
-                padding: 6px 32px 6px 12px;
-            }
-
-            #chat-window {
-                padding: 16px;
-            }
-
-            .message-row {
-                gap: 12px;
-                margin-bottom: 24px;
-            }
-
-            .message-icon {
-                width: 32px;
-                height: 32px;
-                font-size: 16px;
-            }
-
-            .message-content {
-                font-size: 14px;
-            }
-
-            #input-area {
-                padding: 16px;
-            }
-
-            #question-input,
-            #send-button {
-                min-height: 48px;
-            }
-
-            #send-button {
-                width: 48px;
-                height: 48px;
-            }
+        @keyframes dots {
+            0%   { content: ''; }
+            33%  { content: '.'; }
+            66%  { content: '..'; }
+            100% { content: '...'; }
         }
     </style>
 </head>
@@ -398,6 +147,21 @@
     const sendButton = document.getElementById('send-button');
     const modelSelector = document.getElementById('model-selector');
 
+    // ✅ 현재 환경 읽기 (spring.profiles.active 값)
+    const envMeta = document.querySelector('meta[name="env"]');
+    const currentEnv = envMeta ? envMeta.content : 'local';
+
+    // ✅ Ollama 모델 자동 설정
+    const ollamaOption = modelSelector.querySelector('option[value="ollama"]');
+    let ollamaModel = 'qwen3:8b';
+    if (currentEnv === 'prod') {
+        ollamaModel = 'gemma:2b';
+        ollamaOption.textContent = 'gemma:2b (무료 라이선스)';
+    } else {
+        ollamaOption.textContent = 'qwen3:8b (무료 라이선스)';
+    }
+    ollamaOption.dataset.model = ollamaModel;
+
     // 자동 높이 조절
     questionInput.addEventListener('input', () => {
         questionInput.style.height = 'auto';
@@ -415,7 +179,9 @@
     async function sendMessage() {
         const question = questionInput.value.trim();
         const selectedModel = modelSelector.value;
-        
+        const selectedOption = modelSelector.options[modelSelector.selectedIndex];
+        const modelName = selectedOption.dataset.model || 'qwen3:8b';
+
         if (question === '') return;
 
         addMessage(question, 'user');
@@ -430,13 +196,13 @@
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    provider: selectedModel,  // ✅ "openai" or "ollama"
-                    message: question         // ✅ 메시지 본문
+                    provider: selectedModel,  // "openAi" or "ollama"
+                    model: modelName,         // ✅ qwen3:8b or gemma:2b
+                    message: question
                 })
             });
 
             if (!response.ok) throw new Error('서버 응답 오류');
-
             const data = await response.json();
             botResponseContent.textContent = data.answer;
 
@@ -452,25 +218,37 @@
     function addMessage(text, type) {
         const messageRow = document.createElement('div');
         messageRow.className = `message-row ${type}-message`;
-        
         const iconDiv = document.createElement('div');
         iconDiv.className = `message-icon ${type}-icon`;
         iconDiv.textContent = type === 'bot' ? 'AI' : 'ME';
-        
         const contentDiv = document.createElement('div');
         contentDiv.className = 'message-content';
-        
         if (type === 'bot' && text === 'loading') {
-            contentDiv.innerHTML = `<div class="loading-dots"><span></span><span></span><span></span></div>`;
-        } else {
+            // 현재 선택된 모델명 가져오기
+            const selectedOption = modelSelector.options[modelSelector.selectedIndex];
+            const modelName = selectedOption.dataset.model || 'AI';
+
+            contentDiv.innerHTML = `
+        <div class="thinking-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                 fill="none" stroke="#10a37f" stroke-width="2" stroke-linecap="round"
+                 stroke-linejoin="round" class="thinking-spinner">
+                <circle cx="12" cy="12" r="10" stroke-opacity="0.25"/>
+                <path d="M12 2a10 10 0 0 1 10 10"/>
+            </svg>
+            <span class="thinking-text">
+                인공지능(<strong>${modelName}</strong>)이 최적의 답변을 준비 중입니다<span class="thinking-dots"></span><br>
+                잠시만 기다려주세요!
+            </span>
+        </div>`;
+        }
+        else {
             contentDiv.textContent = text;
         }
-        
         messageRow.appendChild(iconDiv);
         messageRow.appendChild(contentDiv);
         chatWindow.appendChild(messageRow);
         chatWindow.scrollTop = chatWindow.scrollHeight;
-        
         return contentDiv;
     }
 

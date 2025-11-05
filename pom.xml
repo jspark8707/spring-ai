@@ -103,6 +103,7 @@
 
     <build>
         <plugins>
+            <!-- ✅ 1. 컴파일러 플러그인 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -115,6 +116,21 @@
                     </compilerArgs>
                 </configuration>
             </plugin>
+
+            <!-- ✅ 2. 스프링부트 패키징 플러그인 -->
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>3.2.5</version> <!-- 사용 중인 스프링 부트 버전에 맞게 변경 -->
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>repackage</goal> <!-- ★ 실행 가능한 jar로 다시 패키징 -->
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
+
 </project>
