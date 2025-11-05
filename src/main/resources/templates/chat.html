@@ -155,8 +155,8 @@
     const ollamaOption = modelSelector.querySelector('option[value="ollama"]');
     let ollamaModel = 'qwen3:8b';
     if (currentEnv === 'prod') {
-        ollamaModel = 'gemma:2b';
-        ollamaOption.textContent = 'gemma:2b (무료 라이선스)';
+        ollamaModel = 'qwen2.5:1.5b';
+        ollamaOption.textContent = 'qwen2.5:1.5b (무료 라이선스)';
     } else {
         ollamaOption.textContent = 'qwen3:8b (무료 라이선스)';
     }
@@ -197,7 +197,7 @@
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
                     provider: selectedModel,  // "openAi" or "ollama"
-                    model: modelName,         // ✅ qwen3:8b or gemma:2b
+                    model: modelName,         // ✅ qwen3:8b or qwen2.5:1.5b
                     message: question
                 })
             });
