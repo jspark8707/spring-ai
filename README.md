@@ -10,7 +10,7 @@ Spring AI를 활용한 다중 AI 모델 채팅 애플리케이션
 
 - **Backend**: Spring Boot 3.x, Spring AI
 - **Frontend**: HTML, CSS, Vanilla JavaScript
-- **AI Models**: OpenAI GPT-4o Mini, Ollama Llama 3
+- **AI Models**: OpenAI GPT-4o Mini, Ollama Llama 3, Qwen2.5:1.5b
 - **Build Tool**: Maven
 
 ## ✨ 주요 기능
