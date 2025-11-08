@@ -60,16 +60,16 @@ Spring AI는 “AI 애플리케이션을 Spring스럽게” 만들기 위한 프
 
 ```mermaid
 graph TD
-  User[🧑‍💻 Web Client] -->|HTTP| SpringAI[Spring Boot (Spring AI)]
+  User[🧑‍💻 Web Client] -->|HTTP| SpringAI[Spring Boot - Spring AI]
   SpringAI -->|REST| Ollama[Ollama Local LLM Server]
   SpringAI -->|API| OpenAI[OpenAI GPT API]
   SpringAI -->|Vector| PgVector[PostgreSQL + pgvector]
   SpringAI -->|Webhook| Slack[📢 Slack Notifications]
-  SpringAI -->|Deployed on| GCP[Google Cloud VM (Debian)]
-
+  SpringAI -->|Deployed on| GCP[Google Cloud VM - Debian]
 
 
 ```
+
 ---
 🔮 향후 확장 계획
 
