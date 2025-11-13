@@ -33,15 +33,15 @@ Spring AI는 “AI 애플리케이션을 Spring스럽게” 만들기 위한 프
 
 ## ⚙️ 기술 스택
 
-| 구분 | 기술 |
-|------|------|
-| **Backend** | Spring Boot 3.x, Spring AI |
-| **Frontend** | HTML, CSS, Vanilla JavaScript |
-| **AI Models** | OpenAI GPT-4o Mini, Qwen3:8B, Llama3 |
-| **Vector DB** | PostgreSQL + PgVector |
-| **Build Tool** | Maven |
+| 구분 | 기술                                         |
+|------|--------------------------------------------|
+| **Backend** | Spring Boot 3.x, Spring AI                 |
+| **Frontend** | HTML, CSS, Vanilla JavaScript              |
+| **AI Models** | OpenAI GPT-4o Mini, kanana-nano-2.1b, Llama3    |
+| **Vector DB** | PostgreSQL + PgVector                      |
+| **Build Tool** | Maven                                      |
 | **Infra** | Google Cloud VM (Debian 기반, n1-standard-1) |
-| **Notification** | Slack Webhook (운영환경 로그/이벤트 전송) |
+| **Notification** | Slack Webhook (운영환경 로그/이벤트 전송)             |
 
 ---
 
@@ -52,7 +52,7 @@ Spring AI는 “AI 애플리케이션을 Spring스럽게” 만들기 위한 프
 - 🧠 **임베딩 및 벡터 검색 구조** — 문서 기반 질의응답 확장 대비
 - 📝 **대화 로그 관리** — Logback 기반 로깅 및 운영 모니터링
 - 📢 **Slack 연동** — 운영환경 이벤트/오류 실시간 알림
-- 🌐 **Google Cloud VM 운영환경** — 경량 CPU 기반 LLM 구동(Qwen3:8B 등)
+- 🌐 **Google Cloud VM 운영환경** — 경량 CPU 기반 LLM 구동(kanana-nano-2.1b 등)
 
 ---
 
