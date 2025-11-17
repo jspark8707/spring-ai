@@ -114,8 +114,9 @@
             NRF AI Chat
         </h1>
         <select id="model-selector">
-            <option value="openAi">GPT-4o (유료 라이선스)</option>
-            <option value="ollama">qwen3:8b (무료 라이선스)</option>
+            <option value="openAi">GPT-4o (OpenAI)</option>
+<!--            <option value="ollama">qwen3:8b (무료 라이선스)</option>-->
+            <option value="ollama">kanana-nano (카카오)</option>
         </select>
     </header>
 
@@ -153,12 +154,13 @@
 
     // ✅ Ollama 모델 자동 설정
     const ollamaOption = modelSelector.querySelector('option[value="ollama"]');
-    let ollamaModel = 'qwen3:8b';
+    // let ollamaModel = 'qwen3:8b';
+    let ollamaModel = 'kanana-nano:2.1b';
     if (currentEnv === 'prod') {
         ollamaModel = 'qwen2.5:1.5b';
-        ollamaOption.textContent = 'qwen2.5:1.5b (무료 라이선스)';
+        ollamaOption.textContent = 'qwen2.5:1.5b (무료/알리바바)';
     } else {
-        ollamaOption.textContent = 'qwen3:8b (무료 라이선스)';
+        ollamaOption.textContent = 'kanana-nano:2.1b (무료/카카오)';
     }
     ollamaOption.dataset.model = ollamaModel;
 

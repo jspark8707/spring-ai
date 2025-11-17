@@ -1,0 +1,18 @@
+<div th:fragment="chat">
+    <div class="chat-box">
+        <h2>AI 답변</h2>
+
+        <!-- ✅ 중앙: AI 답변만 표시 -->
+        <div id="answer-content" class="ai-bubble" th:text="${answer}">
+            AI 응답 내용
+        </div>
+
+        <!-- ✅ 우측 표시용: 참고 문서 내용 (중앙에서는 숨김) -->
+        <div id="sources-content" style="display:none;">
+            <h4>📘 참고된 문서 내용</h4>
+            <ul>
+                <li th:each="s : ${sources}" th:text="${s}"></li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <!-- 파비콘 -->
+    <link rel="icon" type="image/png" href="/images/NRF늘프_영문_정자세.png">
+    <link rel="apple-touch-icon" href="/images/NRF늘프_영문_정자세.png">
+
+    <!-- 카카오톡 미리보기 (Open Graph) -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="NRF AI Chat">
+    <meta property="og:description" content="NRF AI 챗봇과 대화해보세요! GPT-4o Mini와 Llama 3를 지원합니다.">
+    <meta property="og:image" content="/images/NRF늘프_영문_정자세.png">
+    <meta property="og:url" content="">
+    <meta property="og:site_name" content="NRF AI Chat">
+
+    <!-- 트위터 카드 -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="NRF AI Chat">
+    <meta name="twitter:description" content="NRF AI 챗봇과 대화해보세요!">
+    <meta name="twitter:image" content="/images/NRF늘프_영문_정자세.png">
+    <title>Spring AI RAG Assistant</title>
+    <link rel="stylesheet" th:href="@{/css/rag-modern.css}">
+    <style>
+        /* ✅ grid 기반 3단 레이아웃 강제 적용 */
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background: #f9fafb;
+            font-family: "Pretendard", "Noto Sans KR", sans-serif;
+        }
+
+        .main-layout {
+            display: grid !important;
+            grid-template-columns: 260px 1fr 340px;
+            grid-template-areas: "sidebar chat context";
+            height: calc(100vh - 60px);
+            overflow: hidden;
+        }
+
+        .sidebar { grid-area: sidebar; }
+        .chat-container { grid-area: chat; }
+        .context-panel { grid-area: context; }
+
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 260px 1fr;
+                grid-template-areas: "sidebar chat";
+            }
+            .context-panel { display: none; }
+        }
+
+        @media (max-width: 768px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                grid-template-areas: "chat";
+            }
+            .sidebar, .context-panel { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 헤더 -->
+<header class="top-header">
+    <div class="logo">
+        <img src="/images/NRF늘프_영문_정자세.png" alt="NRF Logo" class="logo-icon">
+        NRF AI기반 RAG Assistant
+    </div>
+</header>
+
+
+<!-- ✅ 3단 구성 -->
+<div class="main-layout">
+
+    <!-- 좌측 PDF 관리 -->
+    <aside class="sidebar">
+        <h3>📂 PDF 문서 관리</h3>
+
+        <form id="upload-form" th:action="@{/rag/upload}" method="post" enctype="multipart/form-data">
+            <label class="upload-box" id="drop-area">
+                <span id="upload-label">클릭하거나 PDF를 끌어다 놓으세요</span>
+                <input type="file" name="file" id="file-input" accept="application/pdf" hidden>
+            </label>
+
+            <div class="progress">
+                <div id="progress-bar"></div>
+            </div>
+
+            <p id="upload-status"></p>
+
+            <div class="upload-buttons">
+                <button type="submit" class="btn-primary">PDF 업로드(벡터DB)</button>
+            </div>
+        </form>
+
+        <div id="file-list" class="file-list">
+            <p></p>
+        </div>
+    </aside>
+
+    <!-- 중앙 채팅 영역 -->
+    <main class="chat-container">
+        <div id="chat-area" class="chat-area">
+            <div class="ai-bubble intro">
+                🤖 안녕하세요! PDF 문서에서 필요한 내용을 찾아드릴게요.<br>
+                좌측 메뉴에서 PDF를 업로드한 뒤 질문을 입력하면 <b>RAG 기반으로</b> 정확한 답변을 제공합니다.<br>
+            </div>
+        </div>
+
+        <form id="query-form" class="chat-input" th:action="@{/rag/query}" method="post">
+            <input type="text" name="question" placeholder="무엇이 궁금하신가요?" autocomplete="off" required>
+            <button type="submit">보내기</button>
+        </form>
+    </main>
+
+    <!-- 우측 참고 문서 -->
+    <aside class="context-panel" id="context-panel">
+        <div class="resize-handle" id="resize-handle"></div>
+        <h3>🔍 참고 문서</h3>
+        <div id="context-list">
+            <p>AI가 인용한 문서 근거가 여기에 표시됩니다.</p>
+        </div>
+    </aside>
+
+</div> <!-- /main-layout -->
+
+<script th:src="@{/js/rag.js}"></script>
+</body>
+</html>

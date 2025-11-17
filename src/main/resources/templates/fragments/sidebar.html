@@ -1,0 +1,13 @@
+<aside th:fragment="sidebar" class="sidebar">
+    <h3>📂 문서 관리</h3>
+    <form th:action="@{/rag/upload}" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required>
+        <button type="submit">PDF 업로드</button>
+    </form>
+    <hr/>
+    <h3>💬 AI 질의</h3>
+    <form th:action="@{/rag/query}" method="post">
+        <input type="text" name="question" placeholder="PDF 내용에 대해 질문하세요..." required>
+        <button type="submit">AI 검색</button>
+    </form>
+</aside>
